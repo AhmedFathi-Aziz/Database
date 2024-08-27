@@ -1,0 +1,70 @@
+                      Database Design
+
+Database Normalization
+
+Denormalized
+Student#   Advisor   Adv-Room   Class1   Class2   Class3
+1022       Jones     412        101-07   143-01   159-02
+4123       Smith     216        201-01   211-02   214-01
+
+1NF
+  Eliminate repeating groups in individual tables.
+  Create a separate table for each set of related data 
+  Identify each set of related data with a primary key
+
+  
+  Student#   Advisor   Adv-Room   Class#  
+  1022       Jones     412        101-07
+  1022       Jones     412        143-01
+  1022       Jones     412        159-02
+  4123       Smith     216        201-01
+  4123       Smith     216        211-02
+  4123       Smith     216        214-01
+
+
+2NF
+  Create separate tables for sets of values that apply to multiple records
+  Relate these tables with a foreign key
+
+  Students
+  ---
+  Student#   Advisor   Adv-Room
+  1022       Jones     412 
+  4123       Smith     216
+
+  Registration
+  ---
+  Student#   Class#
+  1022       101-07
+  1022       143-01
+  1022       159-02
+  4123       201-01
+  4123       211-02
+  4123       214-01
+
+3NF
+  Eliminate fields that do not depend on the key
+
+  Students
+  ---
+  Student#   Advisor  
+  1022       Jones     
+  4123       Smith
+
+  Faculty
+  ---
+  Name       Room    Dept
+  Jones      412     42
+  Smith      216     42
+
+  Registration
+  ---
+  Student#   Class#
+  1022       101-07
+  1022       143-01
+  1022       159-02
+  4123       201-01
+  4123       211-02
+  4123       214-01
+  
+7:4:30 minute
